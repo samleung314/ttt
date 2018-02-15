@@ -27,7 +27,8 @@ $('.card').click(function() {
             'jsonData' : $jsonData
         },
         datatype : 'json',
-        success : function ($response){
+        success : function ($response)
+        {
             $data = JSON.parse($response);
             console.log($data);
             if($data.winner!='no') {

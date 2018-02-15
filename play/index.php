@@ -7,6 +7,7 @@
     // } else {
         $data = $_POST['jsonData'];
         $response['grid'] = $data;
+        //var_dump($data);
         $game = false;
         for($i=0;$i<count($data);$i++) {
             if($data[$i]=='') $game=true;
