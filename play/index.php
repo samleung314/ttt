@@ -4,8 +4,6 @@
     if(empty($_POST)) {
         header('Content-Type: application/json');
         $data = '{ "grid" : [" "," "," "," "," "," "," "," "," "], "winner" : " "}';
-        echo("EMPTY POST");
-        echo ($data);
     } else {
         $data = $_POST['jsonData'];
         $response['grid'] = $data;
