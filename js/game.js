@@ -27,17 +27,18 @@ $('.card').click(function() {
             'jsonData' : $jsonData
         },
         datatype : 'json',
-        success : function ($response){
+        success : function ($response)
+        {
             $data = JSON.parse($response);
             console.log($data);
-            if($data.winner!='no') {
-                if($data.winner=='d')
+            if($data.winner!='') {
+                if($data.winner==' ')
                     $('.gameover').html('Draw').show();
                 else {
-                    if($('.card:eq('+$data.winner+')').attr('status')=='X')
+                    if($data.winner=='X')
                         $('.gameover').html('Winner : You').show();
                     else
-                        $('.gameover').html('Winner : Com').show();                        
+                        $('.gameover').html('Winner : Com').show();
                 }
                 $game = false;
             }
