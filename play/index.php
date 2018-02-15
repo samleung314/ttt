@@ -3,9 +3,9 @@
     
     if(empty($_POST)) {
         header('Content-Type: application/json');
-        $data = '{"grid" : [" "," "," "," "," "," "," "," "," "], "winner" : " "}';
+        $data = '{"grid" : [" "," "," "," fhfh"," "," "," "," "," "], "winner" : " "}';
 
-        echo json_encode(json_decode($data));
+        json_decode($data);
     } else {
         $data = $_POST['jsonData'];
         $response['grid'] = $data;
