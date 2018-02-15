@@ -3,7 +3,7 @@
     
     if(empty($_POST)) {
         header('Content-Type: application/json');
-        $data = '{"grid" : [" "," "," ","X"," "," "," "," "," "], "winner" : " "}';
+        $data = '{"grid" : [" "," "," "," "," "," "," "," "," "], "winner" : " "}';
 
         echo json_encode(json_decode($data));
     } else {
