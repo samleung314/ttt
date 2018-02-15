@@ -1,15 +1,13 @@
 
 <?php
     
-    if(empty($_POST)) {
-        header('Content-Type: application/json');
-        $data = '{ "grid" : [" "," "," "," "," "," "," "," "," "], "winner" : " "}';
-        echo("ONE");
-    } else {
+    // if(empty($_POST)) {
+    //     header('Content-Type: application/json');
+    //     $data = '{"grid" : [" "," "," "," "," "," "," "," "," "], "winner" : " "}';
+    // } else {
         $data = $_POST['jsonData'];
         $response['grid'] = $data;
         $game = false;
-        echo("TWO");
         for($i=0;$i<count($data);$i++) {
             if($data[$i]=='') $game=true;
         }
@@ -24,8 +22,7 @@
         if(same($data[2],$data[4],$data[6])) $response['winner'] = 2;
         if(!$game && $response['winner']=='no') $response['winner'] = 'd';        
         echo json_encode($response);
-        echo("THREE");
-    }
+    // }
     function same($a,$b,$c) {
         if($a==$b && $a==$c && $a!='' && $b!='' && $c!='') return true; else return false;
     }
