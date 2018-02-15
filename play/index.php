@@ -4,7 +4,7 @@
     if(empty($_POST)) {
         //header('Content-Type: application/json');
         $data = '{"grid" : [" "," "," "," "," "," "," "," "," "], "winner" : " "}';
-    } else {
+
         $data = $_POST['jsonData'];
         $response['grid'] = $data;
         //var_dump($data);
@@ -23,6 +23,8 @@
         if(same($data[2],$data[4],$data[6])) $response['winner'] = 2;
         if(!$game && $response['winner']=='no') $response['winner'] = 'd';        
         echo json_encode($response);
+    } else {
+        
     }
     function same($a,$b,$c) {
         if($a==$b && $a==$c && $a!='' && $b!='' && $c!='') return true; else return false;
