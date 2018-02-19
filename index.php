@@ -1,28 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TicTacToe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="js/jquery-3.2.1.js"></script>
-</head>
-<body>
-    <?php if(!empty($_POST)):?>
-        <center><h1>Hello <?php echo $_POST['name'].", "; echo date('F jS Y');?></center>
-        <div class="gamecontainer"><script src="js/game.js"></script></div>
-    <?php else:?>
-        <div class="content">
-            
-            <div class="formdiv" >
-                <h1>TicTacToe Game</h1>
-                <form method="post" action="#">
-                    <p style="margin-top:70px;"><input type="text" name="name" placeholder="Input Player Name" autocomplete ="off" required></p>
-                    <p style="margin-top:20px;"><input style="font-size: 20px; color:white; width:200px; height: 67px;" type="submit" class="play" value="Start the game!"></p>
-                </form>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Scripts -->
+    <!-- <script src="/var/www/html/ttt/play/node_modules/jquery/src/jquery.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="cs.js"></script>
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+
+<?php include ('html/header.html'); ?>
+
+<div class="formContainer">
+    <form action="./" method="post">
+
+            <div class="col-auto">
+              <input type="text" class="form-control mb-2" placeholder="Enter your name" name="name">
             </div>
-        </div>
-    <?php endif;?>
+            <div class="col-auto">
+              <button id="submitBtn" onclick="onSubmitClick()" type="submit" class="btn btn-primary mb-2"> Submit</button>
+            </div>
+    </form>
+
+    <?php
+      if ($_POST["name"] != "") {
+          echo "Hello " . $_POST["name"]. ", ";
+          echo "\n";
+          echo date("d/m/Y");
+        }
+    ?>
+
+    <div class="boardContainer">
+
+          <?php
+
+              if (!empty($_POST["name"])) {
+                  include ('html/board.html');
+              }
+          ?>
+
+    </div>
+</div>
+
+<?php include ('html/footer.html'); ?>
+
+
 </body>
 </html>
