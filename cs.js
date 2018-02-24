@@ -71,7 +71,28 @@ function addUser(){
     datatype : 'json',
     success : function ($response){
 
-      //$data = JSON.parse($response);
+      console.log($response);
+
+    }, false : function(e) {
+      alert('failed');
+    }
+  });
+
+  var verify = new Object();
+  verify.email = "samson.leung@stonybrook.edu";
+  verify.key = "abracadabra";
+
+  $jsonData = JSON.parse(JSON.stringify(verify));
+  
+  $.ajax({
+    type : 'POST',
+    url : './verify/index.php',
+    data : {
+      'jsonData' : $jsonData
+    },
+    datatype : 'json',
+    success : function ($response){
+
       console.log($response);
 
     }, false : function(e) {
