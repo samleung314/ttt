@@ -1,19 +1,12 @@
 let grid = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
-
 let divs;
-
 let gameOver = false;
-
 let gameOn = false;
 
 function onDivClick(index) {
+  if(!gameOn) changeStateToGameOn();
 
-  if(!gameOn)
-    changeStateToGameOn();
-
-  if(divs === undefined) {
-    populateDivs();
-  }
+  if(divs === undefined) populateDivs();
 
   if(!gameOver && grid[index] == ' ') {
 
@@ -50,6 +43,7 @@ function onDivClick(index) {
     });
   }
 }
+
 function changeStateToGameOn() {
   document.getElementById("state").textContent = "Game on!";
   gameOn = true;
@@ -57,9 +51,31 @@ function changeStateToGameOn() {
 
 function populateDivs() {
   divs = new Array(9);
-  for(var i = 0; i < 9; i++) {
+  for(var i = 0; i < 9; i++) divs[i] = document.getElementById(i);
+}
 
-    divs[i] = document.getElementById(i);
+function addUser(){
+  var user = new Object();
+  user.username = document.getElementById('username').value;
+  user.password = document.getElementById('password').value;
+  user.email = document.getElementById('email').value;
 
-  }
+  $jsonData = JSON.parse(JSON.stringify(user));
+
+  $.ajax({
+    type : 'POST',
+    url : './adduser/index.php',
+    data : {
+      'jsonData' : $jsonData
+    },
+    datatype : 'json',
+    success : function ($response){
+
+      //$data = JSON.parse($response);
+      console.log($response);
+
+    }, false : function(e) {
+      alert('failed');
+    }
+  });
 }

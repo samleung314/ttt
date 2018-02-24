@@ -22,25 +22,25 @@
 
   <div class="formContainer">
     <?php if (empty($_POST["name"])) { ?>
-    <form action="./" method="post">
+    <form action="./" method="post" id="form1">
 
       <div class="col-auto">
-        <input type="text" class="form-control mb-2" placeholder="Name" name="name" value="Sam">
+        <input type="text" class="form-control mb-2" placeholder="Username" name="name" value="Sam" id="username">
       </div>
 
       <div class="col-auto">
-        <input type="text" class="form-control mb-2" placeholder="Password" name="password" value="123">
+        <input type="text" class="form-control mb-2" placeholder="Password" name="password" value="123" id="password">
       </div>
 
       <div class="col-auto">
-        <input type="text" class="form-control mb-2" placeholder="Email" name="email" value="samson.leung@stonybrook.edu">
-      </div>
-
-      <div class="col-auto">
-        <button id="submitBtn" onclick="submit()" type="submit" class="btn btn-primary mb-2"> Submit</button>
-        <button id="signupBtn" onclick="submit()" type="submit" class="btn btn-primary mb-2"> Sign Up</button>
+        <input type="text" class="form-control mb-2" placeholder="Email" name="email" value="samson.leung@stonybrook.edu" id="email">
       </div>
     </form>
+
+    <div class="col-auto">
+      <button id="submitBtn" form="form1" class="btn btn-primary mb-2"> Submit</button>
+      <button id="addUserBtn" onclick="addUser()" class="btn btn-primary mb-2"> Add User</button>
+    </div>
     <?php } ?>
 
     <div>
