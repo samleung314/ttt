@@ -18,7 +18,7 @@
 
   <?php include ('html/header.html'); ?>
 
-  <p id="state"> Welcome! </p>
+  <p id="state"> Welcome! Let's Play!</p>
 
   <div class="formContainer">
     <?php if (empty($_POST["name"])) { ?>
