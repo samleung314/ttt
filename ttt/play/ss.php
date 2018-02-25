@@ -2,7 +2,6 @@
 
 if(empty($_POST)) {
 
-        // init game status with empty JSON array
   header('Content-Type: application/json');
   $data = '{ "grid" : [" "," "," "," "," ","X"," "," "," "], "winner" : " "}';
   echo ($data);
