@@ -3,7 +3,7 @@
 if(empty($_POST)) {
 
 	header('Content-Type: application/json');
-	$data = '{"username":"sam","password":"123,"email":"samson.leung@stonybrook.edu"}';
+	$data = '{username:sam,password:123,email:samson.leung@stonybrook.edu}';
 	echo json_encode($data);
 
 }else {
